@@ -11,8 +11,8 @@ make down
 
 test
 ```
-echo '{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}' >> ./log/fluent-bit.log
-
+echo '{"level":"info","channel":"app","datetime":"2025-04-09T10:43:54+03:00","msg":"ssss"}' >> ./log/fluent-bit.log ;
+make lf
 ```
 
 docker logs 

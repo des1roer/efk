@@ -1,8 +1,1 @@
-{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}
-{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}
-{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}
-{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}
-{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}
-{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}
-{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}
-{"context":{},"level":"alert","channel":"app","datetime":"2025-04-09T10:43:54.491003+03:00","extra":{},"msg":"ssss"}
+{"level":"info","channel":"app","datetime":"2025-04-09T10:43:54+03:00","msg":"ssss"}
