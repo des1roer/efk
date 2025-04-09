@@ -1,0 +1,38 @@
+services:
+  fluent-bit-test:
+    image: fluent/fluent-bit:3.2.0
+    container_name: fluent-bit-cn
+    ports:
+      - "${FLUENTBIT_EXTERNAL_PORT}:24224"
+    volumes:
+      - ./docker/fluent-bit:/fluent-bit/etc
+      - ./log:/var/log
+    networks:
+      - elastic
+
+  elasticsearch-test:
+    image: bitnami/elasticsearch:8.11.4
+    container_name: elasticsearch-cn
+    ports:
+      - "${ELASTIC_EXTERNAL_PORT}:9200"
+    environment:
+      - "discovery.type=single-node"
+    networks:
+      - elastic
+
+  kibana-test:
+    image: bitnami/kibana:8.11.4
+    container_name: kibana-cn
+    links:
+      - "elasticsearch-test"
+    ports:
+      - "${KIBANA_EXTERNAL_PORT}:5601"
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch-test:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch-test:9200
+    networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge
