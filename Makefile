@@ -6,8 +6,8 @@ up:
 down:
 	docker-compose down
 
-bash:
-	docker-compose exec fluent-bit-cn /fluent-bit/bin/fluent-bit -o stdout -h
+help:
+	docker-compose exec fluent-bit-test /fluent-bit/bin/fluent-bit -o es -h
 
 build:
 	docker-compose down -v --remove-orphans
