@@ -7,8 +7,6 @@ services:
     volumes:
       - ./docker/fluent-bit:/fluent-bit/etc
       - ./log:/var/log
-    networks:
-      - elastic
 
   elasticsearch-test:
     image: bitnami/elasticsearch:8.11.4
@@ -17,8 +15,6 @@ services:
       - "${ELASTIC_EXTERNAL_PORT}:9200"
     environment:
       - "discovery.type=single-node"
-    networks:
-      - elastic
 
   kibana-test:
     image: bitnami/kibana:8.11.4
@@ -30,9 +26,3 @@ services:
     environment:
       ELASTICSEARCH_URL: http://elasticsearch-test:9200
       ELASTICSEARCH_HOSTS: http://elasticsearch-test:9200
-    networks:
-      - elastic
-
-networks:
-  elastic:
-    driver: bridge
