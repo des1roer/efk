@@ -2,6 +2,8 @@ services:
   fluent-bit-test:
     image: fluent/fluent-bit:3.2.0
     container_name: fluent-bit-cn
+    depends_on:
+      - elasticsearch-test
     ports:
       - "${FLUENTBIT_EXTERNAL_PORT}:24224"
     volumes:
@@ -37,11 +39,11 @@ services:
     #      - ./php-fpm.conf:/usr/local/etc/php-fpm.conf
     depends_on:
       - fluent-bit-test
+    entrypoint: [ "php", "-f", "/var/www/app/public/index.php" ]
     logging:
       driver: fluentd
       options:
         fluentd-address: localhost:24224
-        tag: asdf
 
   nginx:
     image: nginx:1.27.1-alpine
