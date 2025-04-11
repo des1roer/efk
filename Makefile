@@ -18,4 +18,10 @@ list:
 	docker ps
 
 lf:
-	docker logs fluent-bit-cn
+	docker logs -f fluent-bit-cn
+
+lp:
+	docker logs php-fpm
+
+p:
+	docker-compose exec php-fpm sh
