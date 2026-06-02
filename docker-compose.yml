@@ -11,15 +11,21 @@ services:
       - ./log:/var/log
 
   elasticsearch-test:
-    image: bitnami/elasticsearch:8.11.4
+    image: elasticsearch:8.11.4 # Changed to official image
     container_name: elasticsearch-cn
     ports:
       - "${ELASTIC_EXTERNAL_PORT}:9200"
     environment:
       - "discovery.type=single-node"
+      - "xpack.security.enabled=false" # CRITICAL: Disables security for local dev
+    # Recommended for Elasticsearch performance
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
 
   kibana-test:
-    image: bitnami/kibana:8.11.4
+    image: bitnamilegacy/kibana:8.11.4
     container_name: kibana-cn
     links:
       - "elasticsearch-test"
