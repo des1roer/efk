@@ -11,7 +11,7 @@ make down
 
 test
 ```
-echo '{"level":"info","channel":"app","datetime":"2025-04-09T10:43:54+03:00","msg":"ssss"}' >> ./log/fluent-bit.log ;
+echo '{"level":"info","channel":"app","datetime":"2025-04-09T10:43:54+03:00","msg":"ssss","extra":{"trace":"some"}}' >> ./log/fluent-bit.log ;
 make lf
 
 make p
